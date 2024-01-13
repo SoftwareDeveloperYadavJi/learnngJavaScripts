@@ -37,15 +37,40 @@ const myarr = [1,2,3,4,5,6,7]
 // myarr.forEach(printMe)
 
 
-const arrayObject = [
-    {lagname:"java",
-    extenstion:"Java"},
-    {lagname:"JavaScripts",
-    extenstion:"js"},
-    {lagname:"Python",
-    extenstion:"py"}
-]
+// const arrayObject = [
+//     {lagname:"java",
+//     extenstion:"Java"},
+//     {lagname:"JavaScripts",
+//     extenstion:"js"},
+//     {lagname:"Python",
+//     extenstion:"py"}
+// ]
 
-arrayObject.forEach( (item) =>{
-    console.log(item.extenstion)
+
+// this is the way we acces the object which is inside array
+// arrayObject.forEach( (item) =>{
+//     console.log(item.extenstion)
+// } )
+
+
+const array = [1,2,3,4,5,6,7,8,9,10]
+
+const value = array.filter( function(item){
+    return item > 4
 } )
+
+
+// this returning the same thing but implecitly which means it does not need retun key_word
+// const withArrowFun = array.filter( (item) => item > 4 ) 
+
+
+
+// this the same but hear we are returing explictly 
+// const withArrowFun = array.filter( (item) =>{
+//     return item > 4
+// } )
+
+// console.log(withArrowFun);
+
+
+

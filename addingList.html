@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: black; color: white">
+    
+    <ul class="list">
+        <li class="item">JavaScript</li>
+    </ul>
+    
+    <h1>Enter Teach Stack </h1>
+    <input type="text" name="" id="inputText">
+    
+
+    <button onclick="getValue()">ADD</button>
+    <button onclick="remove()">Remove</button>
+    
+    
+    
+</body>
+
+    <script>
+        function addNewItem(lanName){
+            const newItem = document.createElement('li')
+            newItem.innerHTML = `${lanName}`
+            // document.getElementsByClassName('list').appendChild(newItem)     
+            document.querySelector('.list').appendChild(newItem)    
+        }
+        
+        function getValue(){
+            const inputFied = document.getElementById('inputText')
+            const val = inputFied.value;
+            inputFied.value = ""
+            if(val !== ""){
+                addOptElement(val)
+            }
+
+        }
+        
+
+
+        const addOptElement = ((lanName) =>{
+            const li = document.createElement('li');
+            li.appendChild(document.createTextNode(lanName));
+            document.querySelector('.list').appendChild(li)
+        })
+
+
+       const remove = (()=>{
+        const lastElement = document.querySelector('li:last-child');
+        lastElement.remove()
+
+       })
+
+       
+
+              
+        
+
+    </script>
+</html>

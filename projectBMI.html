@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+</head>
+<body style="background: #000; color: white;">
+    
+    <div class="cantainer">
+        <h1>BMI Calculator</h1>
+        <form>
+            <label for="hight">Enter you hight: </label>
+            <input type="text" id="hight">
+            <label>Enter you Weight: </label>
+            <input type="text" id="Weight">
+            <button style="border-radius: 10px; cursor: pointer;">Calculate</button>
+        </form>
+        <p class="result"></p>
+    </div>
+
+    <div class="display">
+        <p class="suggestion"></p>
+
+    </div>
+    
+
+</body>
+<script>
+
+const form = document.querySelector('form');
+
+form.addEventListener("submit",function(e){
+    e.preventDefault();
+    const height = parseInt(document.querySelector("#hight").value);
+    const weight = parseInt(document.querySelector("#Weight").value);
+    const result = document.querySelector(".result");
+    const suggertion = document.querySelector('.suggestion');
+    if(height === "" || height < 0 || isNaN(height)){
+        result.innerHTML = `please endter a valid number ${height}`;
+    }else if(weight === "" || weight < 0 || isNaN(weight)){
+        result.innerHTML = `please enter a valid number ${weight}`
+    }else{
+        const bmi = (weight / ((height * height) / 10000)).toFixed(2);
+        result.innerHTML = `<span>BMI is :- ${bmi}</span>`
+        if(bmi < 18.5){
+        suggertion.innerHTML = '<span>You are Underweight</span>'
+        }else if(bmi > 24.9){
+            suggertion.innerHTML = '<span>You are Overweight</span>'
+        }else{
+            suggertion.innerHTML = '<span>Healthy Weight</span>'
+        }
+    }
+
+   
+
+
+})
+
+
+</script>
+</html>

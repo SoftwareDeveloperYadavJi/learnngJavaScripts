@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventPractice</title>
+</head>
+<style>
+    body{
+        background: #000;
+        color: white;
+    }
+    img{
+        height: 100px;
+
+    }
+</style>
+<body>
+    <ul id="images">
+        <li><img src="https://images.pexels.com/photos/17067264/pexels-photo-17067264/free-photo-of-wood-light-landscape-art.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt=""></li>
+        <li id="secoundImage"><img  src="https://images.pexels.com/photos/17067264/pexels-photo-17067264/free-photo-of-wood-light-landscape-art.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt=""></li>
+        <li id="thirdImage"><img src="https://images.pexels.com/photos/17067264/pexels-photo-17067264/free-photo-of-wood-light-landscape-art.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt=""></li>
+        <li><img src="https://images.pexels.com/photos/17067264/pexels-photo-17067264/free-photo-of-wood-light-landscape-art.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt=""></li>
+    </ul>
+</body>
+<script>
+    document.getElementById("images").addEventListener("click", function(e){
+        
+        if(e.target.tagName === 'IMG'){
+            const removeIt = e.target.parentNode;
+            removeIt.remove()
+        }
+        console.log(e.tagName.tagName);
+    })
+
+    document.getElementById("secoundImage").addEventListener('click',function(e){
+        const secound = document.getElementById('secoundImage');
+        secound.remove()
+    })
+
+    document.getElementById("thirdImage").addEventListener('click', function(e){
+        console.log(e.target)
+    })
+
+</script>
+</html>

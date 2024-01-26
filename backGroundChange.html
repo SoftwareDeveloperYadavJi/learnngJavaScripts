@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BackGroundChanger</title>
+</head>
+<body>
+
+    <h1>BackGround Changer</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+    
+</body>
+<script>
+
+    
+    let interavl;
+
+    document.getElementById('start').addEventListener('click', function(){
+    interavl =setInterval(function(){
+            const picRand = "0123456789ABCDEF";
+            let color = "#";
+            for (let i = 0; i < 6; i++) {
+                color += picRand[Math.floor(Math.random() * 16)]
+                
+            }
+            document.body.style.background = color
+        },100)
+    })
+
+    document.querySelector('#stop').addEventListener('click',function(){
+        clearInterval(interavl)
+    })
+
+
+</script>
+</html>

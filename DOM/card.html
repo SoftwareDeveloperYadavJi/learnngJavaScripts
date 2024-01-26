@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Card Project</title>
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .main {
+            width: 300px;
+            /* Adjust width as needed */
+            height: 200px;
+            /* Adjust height as needed */
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            text-align: center;
+            padding: 20px;
+        
+        }
+        img{
+            height: 150px;
+            width: 100%;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+
+<body style="background: #000">
+    <div class="main">
+        <img id="image" src="https://images.pexels.com/photos/19864171/pexels-photo-19864171/free-photo-of-a-walkway-with-statues-and-a-building-in-the-background.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" alt="">
+        <p id="follower">Nitin</p>
+    </div>
+</body>
+<script>
+
+    const requestUrl = "https://api.github.com/users/hiteshchoudhary"
+    const xhr = new XMLHttpRequest()
+    xhr.open('GET',requestUrl)
+    xhr.onreadystatechange = function(){
+        if(xhr.readyState === 4){
+            const data = JSON.parse(this.responseText)
+            const followerCount = data.followers
+            const imageUrl = data.avatar_url
+            console.log(followerCount);
+            console.log(imageUrl);
+            const displayFollower = document.querySelector('#follower');
+            const imageBox = document.querySelector('#image');
+            displayFollower.innerHTML = `<span>Total Follower: ${followerCount} </span>`
+            imageBox.src = imageUrl
+
+        }
+    }
+    xhr.send()
+
+    
+    
+
+</script>
+
+</html>
